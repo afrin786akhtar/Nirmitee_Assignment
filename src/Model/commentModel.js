@@ -10,7 +10,11 @@ const commentSchema = new mongoose.Schema({
     comment_By : {
         type : String,
         require : true,
-        default : 'User'
+        default : 'user10'
+    },
+    comment : {
+        type : String,
+        require : true
     },
     commented_at : {
         type : Date,
@@ -19,6 +23,9 @@ const commentSchema = new mongoose.Schema({
     isDeleted : {
         type : Boolean,
         default : false
+    },
+    deleted_at : {
+        type : Date
     }
 }, {timestamps : true})
 

@@ -15,7 +15,7 @@ const postSchema = new mongoose.Schema({
         ref : 'user10',
         required : true
     },
-    publishedAt : {
+    posted_at : {
         type : Date,
         default : new Date()
     }, 

@@ -29,7 +29,7 @@ const addPost = async function (req, res) {
     if (!checkEmptyBody(req.body))
       return res.status(400).send({ status: false, message: "empty body" });
 
-    const { postName, body, userId, publishedAt, ...rest } = req.body;
+    const { postName, body, userId, posted_at, ...rest } = req.body;
 
     if (rest.length > 0)
       return res
@@ -140,7 +140,7 @@ const editPost = async function (req, res) {
         message: "this post is not belongs to this user",
       });
 
-    const { postName, body, userId, publishedAt, isDeleted } = req.body;
+    const { postName, body, userId, posted_at, isDeleted } = req.body;
 
     if (userId)
       res
@@ -163,11 +163,11 @@ const editPost = async function (req, res) {
       findPostData.body = body;
     }
 
-    if (publishedAt) {
-      if (!typeof publishedAt === "date")
+    if (posted_at) {
+      if (!typeof posted_at === "date")
         return res
           .status(400)
-          .send({ status: false, message: "publishedAt is not valid" });
+          .send({ status: false, message: "posted_at is not valid" });
     }
 
     if (isDeleted) {
